@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD de Vehículos</title>
+  
+ 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    a {
+      text-decoration: none;
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 3px;
+    }
+
+    a:hover {
+      background-color: #45a049;
+    }
+
+    .add-button {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Listado de Vehículos</h1>
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <th>Modelo</th>
+      <th>Marca</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+    <% vehiculos.forEach(vehiculo => { %>
+      <tr>
+        <td><%= vehiculo._id %></td>
+        <td><%= vehiculo.modelo %></td>
+        <td><%= vehiculo.marca %></td>
+        <td><%= vehiculo.estado %></td>
+        <td>
+          <a href="/editar/<%= vehiculo._id %>">Editar</a>
+          <a href="/eliminar/<%= vehiculo._id %>">Eliminar</a>
+        </td>
+      </tr>
+    <% }); %>
+  </table>
+  <div class="add-button">
+    <a href="/nuevo">Agregar Nuevo Vehículo</a>
+  </div>
+</body>
+</html>
